@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "541611738106",
+    "project_id": "notification-raihomes",
+    "storage_bucket": "notification-raihomes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541611738106:android:f74691d4debe8464db9a43",
+        "android_client_info": {
+          "package_name": "com.example.raihomes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541611738106-dcp69radej3e2sp7q5cj6t6g7ivbuntl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTvDN9aubMg34uhZvSbqtkC4IVD8TX_xE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541611738106-dcp69radej3e2sp7q5cj6t6g7ivbuntl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541611738106:android:dba5e83d01c77a5ddb9a43",
+        "android_client_info": {
+          "package_name": "raihomes_vn.notification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541611738106-dcp69radej3e2sp7q5cj6t6g7ivbuntl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTvDN9aubMg34uhZvSbqtkC4IVD8TX_xE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541611738106-dcp69radej3e2sp7q5cj6t6g7ivbuntl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
