@@ -1,8 +1,4 @@
-// ignore_for_file: unnecessary_cast
-
 part of 'login_response.dart';
-
-
 
 LoginResponse _$loginResponseFromjson(Map<dynamic,dynamic> json) =>
     LoginResponse(

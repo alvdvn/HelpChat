@@ -1,5 +1,3 @@
-
-
 import 'package:equatable/equatable.dart';
 
 class AppConfig extends Equatable {

@@ -10,5 +10,6 @@ class SendMessageResponse {
 
   factory SendMessageResponse.fromJson(Map<String, dynamic> json) =>
       _$sendMessageResponseFromJson(json);
-  Map<String,dynamic> toJson() => _$sendMessageResponsetoJson(this);
+
+  Map<String, dynamic> toJson() => _$sendMessageResponsetoJson(this);
 }

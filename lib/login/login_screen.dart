@@ -1,31 +1,3 @@
-// Copyright (c) 2023 Razeware LLC
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
-// distribute, sublicense, create a derivative work, and/or sell copies of the
-// Software in any work that is designed, intended, or marketed for pedagogical
-// or instructional purposes related to programming, coding, application
-// development, or information technology.  Permission for such use, copying,
-// modification, merger, publication, distribution, sublicensing, creation of
-// derivative works, or sale is expressly withheld.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +7,7 @@ import '../common/common_scaffold.dart';
 import 'login_view_model.dart';
 
 class LoginWidget extends StatelessWidget {
-   LoginWidget({Key? key}) : super(key: key);
+  LoginWidget({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
   final _focusNode = FocusScopeNode();
@@ -87,20 +59,43 @@ class _FormContent extends StatelessWidget {
       child: Focus(
         focusNode: focusNode,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/images/logo.png'),
             TextFormField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(hintText: 'Email'),
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                hintText: 'Username',
+                border: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+              ),
               textCapitalization: TextCapitalization.none,
               textInputAction: TextInputAction.next,
               onEditingComplete: () => focusNode.nextFocus(),
               onSaved: (v) => loginVM.updateForm(username: v),
-
             ),
             const SizedBox(height: 20),
             TextFormField(
               keyboardType: TextInputType.text,
-              decoration: const InputDecoration(hintText: 'Password'),
+              decoration: InputDecoration(
+                hintText: 'Password',
+                border: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+              ),
               textCapitalization: TextCapitalization.none,
               textInputAction: TextInputAction.done,
               onEditingComplete: _validateInputs,
@@ -113,7 +108,7 @@ class _FormContent extends StatelessWidget {
             else
               _AuthButtons(
                 onLogin: _validateInputs,
-                onSignUp: authVM.showSignUp,
+                // onSignUp: authVM.showSignUp,
               ),
             const SizedBox(height: 20),
             if (authVM.error != null)
@@ -132,7 +127,6 @@ class _FormContent extends StatelessWidget {
 
   void _validateInputs() {
     if (authVM.loading) return;
-
     final formState = formKey.currentState;
     if (formState?.validate() == true) {
       formState?.save();
@@ -145,31 +139,31 @@ class _FormContent extends StatelessWidget {
 }
 
 class _AuthButtons extends StatelessWidget {
-  final VoidCallback onSignUp;
+  // final VoidCallback onSignUp;
   final VoidCallback onLogin;
 
-  const _AuthButtons({required this.onSignUp, required this.onLogin, Key? key})
-      : super(key: key);
+  const _AuthButtons({required this.onLogin, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ElevatedButton(
-          onPressed: onLogin,
-          style: ElevatedButton.styleFrom(
-            minimumSize: const Size.fromHeight(40),
-          ),
-          child: const Text('Login'),
+        const SizedBox(
+          height: 10,
         ),
-        const SizedBox(height: 20),
-        TextButton(
-          onPressed: onSignUp,
-          child: const Text('Sign Up'),
-        )
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: onLogin,
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size.fromHeight(50),
+              primary: Color(0xffcd323a),
+            ),
+            child: const Text('Login'),
+          ),
+        ),
       ],
     );
   }
 }
-

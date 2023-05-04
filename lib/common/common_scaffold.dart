@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CommonScaffold extends StatelessWidget {
@@ -19,10 +18,10 @@ class CommonScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        elevation: 0,
+        backgroundColor: const Color(0xffcd323a),
+        foregroundColor: Colors.white,
         centerTitle: true,
         title: Text(title),
         actions: actions,
