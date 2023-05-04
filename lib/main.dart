@@ -25,7 +25,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
+// import 'package:native_notify/native_notify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -38,6 +38,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   // const instanceID = '3b329529-fa88-40f7-bfc3-36599016df04';
   // await PusherBeams.instance.start(instanceID);
+  // NativeNotify.initialize(2905, '4htdDbAx2i7MehXLdaiphB', null, null);
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

@@ -21,6 +21,7 @@ dependencies:
 #  pusher_beams: ^1.1.1
   flutter:
     sdk: flutter
+#  native_notify: ^0.0.17
 
 dev_dependencies:
   flutter_test:
