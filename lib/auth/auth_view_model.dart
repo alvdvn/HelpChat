@@ -66,10 +66,10 @@ class AuthViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void showSignUp() {
-    auth = auth.copyWith(auth: AuthState.signup);
-    notifyListeners();
-  }
+  // void showSignUp() {
+  //   auth = auth.copyWith(auth: AuthState.signup);
+  //   notifyListeners();
+  // }
 
   void _updateUserSession(LoginResponse res) {
     final token = res.logindata?.access_token;

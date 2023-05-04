@@ -43,11 +43,11 @@ class Message {
       required this.created_at,
       required this.updated_at,
       required this.from});
-  factory Message.fromJson(Map<String,dynamic> json) => _$messageFromjson(json);
-  Map<String,dynamic> toJson() => _$messageTojson(this);
 
+  factory Message.fromJson(Map<String, dynamic> json) =>
+      _$messageFromjson(json);
 
-
+  Map<String, dynamic> toJson() => _$messageTojson(this);
 }
 
 class RoomData {
@@ -67,9 +67,7 @@ class RoomData {
   factory RoomData.fromJson(Map<String, dynamic> json) =>
       _$roomDataFromJson(json);
 
-
   Map<String, dynamic> toJson() => _$roomDataToJson(this);
-
 }
 
 // enum MessageStatus { sending, sent, failed }

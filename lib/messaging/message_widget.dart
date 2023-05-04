@@ -61,40 +61,39 @@ class MessageWidget extends StatelessWidget {
     );
   }
 
-  // Widget _getStatus(Message message, bool isSender, BuildContext context) {
-  //   switch (message.status) {
-  //     case MessageStatus.sending:
-  //       return const SizedBox.square(
-  //         dimension: 10,
-  //         child: CircularProgressIndicator(
-  //           strokeWidth: 2,
-  //         ),
-  //       );
-  //     case MessageStatus.sent:
-  //       return Row(
-  //         children: [
-  //           if (isSender)
-  //             const Icon(
-  //               Icons.done_all,
-  //               size: 10,
-  //               color: Colors.white,
-  //             ),
-  //           if (isSender) const SizedBox(width: 10),
-  //           Text(
-  //             message.created_at,
-  //             style: TextStyle(
-  //               color: isSender ? Colors.white : Colors.black,
-  //               fontSize: 10,
-  //             ),
-  //           )
-  //         ],
-  //       );
-  //     case MessageStatus.failed:
-  //       return const Icon(
-  //         Icons.error_outline,
-  //         size: 10,
-  //         color: Colors.redAccent,
-  //       );
-  //   }
-  }
-
+// Widget _getStatus(Message message, bool isSender, BuildContext context) {
+//   switch (message.status) {
+//     case MessageStatus.sending:
+//       return const SizedBox.square(
+//         dimension: 10,
+//         child: CircularProgressIndicator(
+//           strokeWidth: 2,
+//         ),
+//       );
+//     case MessageStatus.sent:
+//       return Row(
+//         children: [
+//           if (isSender)
+//             const Icon(
+//               Icons.done_all,
+//               size: 10,
+//               color: Colors.white,
+//             ),
+//           if (isSender) const SizedBox(width: 10),
+//           Text(
+//             message.created_at,
+//             style: TextStyle(
+//               color: isSender ? Colors.white : Colors.black,
+//               fontSize: 10,
+//             ),
+//           )
+//         ],
+//       );
+//     case MessageStatus.failed:
+//       return const Icon(
+//         Icons.error_outline,
+//         size: 10,
+//         color: Colors.redAccent,
+//       );
+//   }
+}

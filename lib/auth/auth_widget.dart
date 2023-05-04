@@ -21,8 +21,6 @@ class AuthWidget extends StatelessWidget {
           selector: (_, p) => p.auth,
           builder: (_, auth, ch) {
             switch (auth.state) {
-              case AuthState.signup:
-                return SignUpScreen();
               case AuthState.login:
                 return LoginWidget();
               case AuthState.authenticated:

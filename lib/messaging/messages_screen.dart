@@ -81,7 +81,6 @@ class _InputWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Transform.translate(
       offset: Offset(0.0, -1 * bottom),
       child: SafeArea(
@@ -108,10 +107,8 @@ class _InputWidget extends StatelessWidget {
                   onPressed: vm.sendMessage,
                   icon: const Icon(Icons.send),
                 ),
-
-                ),
               ),
-
+            ),
           ],
         ),
       ),

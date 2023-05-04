@@ -8,7 +8,7 @@ class AuthModel extends Equatable {
   const AuthModel({required this.state, required this.user});
 
   const AuthModel.defaults()
-      : state = AuthState.signup,
+      : state = AuthState.login,
         user = null;
 
   @override
@@ -22,4 +22,4 @@ class AuthModel extends Equatable {
   }
 }
 
-enum AuthState { signup, login, authenticated }
+enum AuthState {login, authenticated }

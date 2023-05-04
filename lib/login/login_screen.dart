@@ -7,7 +7,7 @@ import '../common/common_scaffold.dart';
 import 'login_view_model.dart';
 
 class LoginWidget extends StatelessWidget {
-   LoginWidget({Key? key}) : super(key: key);
+  LoginWidget({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
   final _focusNode = FocusScopeNode();
@@ -59,20 +59,43 @@ class _FormContent extends StatelessWidget {
       child: Focus(
         focusNode: focusNode,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/images/logo.png'),
             TextFormField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(hintText: 'Email'),
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                hintText: 'Username',
+                border: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+              ),
               textCapitalization: TextCapitalization.none,
               textInputAction: TextInputAction.next,
               onEditingComplete: () => focusNode.nextFocus(),
               onSaved: (v) => loginVM.updateForm(username: v),
-
             ),
             const SizedBox(height: 20),
             TextFormField(
               keyboardType: TextInputType.text,
-              decoration: const InputDecoration(hintText: 'Password'),
+              decoration: InputDecoration(
+                hintText: 'Password',
+                border: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: Divider.createBorderSide(context),
+                ),
+              ),
               textCapitalization: TextCapitalization.none,
               textInputAction: TextInputAction.done,
               onEditingComplete: _validateInputs,
@@ -85,7 +108,7 @@ class _FormContent extends StatelessWidget {
             else
               _AuthButtons(
                 onLogin: _validateInputs,
-                onSignUp: authVM.showSignUp,
+                // onSignUp: authVM.showSignUp,
               ),
             const SizedBox(height: 20),
             if (authVM.error != null)
@@ -104,7 +127,6 @@ class _FormContent extends StatelessWidget {
 
   void _validateInputs() {
     if (authVM.loading) return;
-
     final formState = formKey.currentState;
     if (formState?.validate() == true) {
       formState?.save();
@@ -117,31 +139,31 @@ class _FormContent extends StatelessWidget {
 }
 
 class _AuthButtons extends StatelessWidget {
-  final VoidCallback onSignUp;
+  // final VoidCallback onSignUp;
   final VoidCallback onLogin;
 
-  const _AuthButtons({required this.onSignUp, required this.onLogin, Key? key})
-      : super(key: key);
+  const _AuthButtons({required this.onLogin, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ElevatedButton(
-          onPressed: onLogin,
-          style: ElevatedButton.styleFrom(
-            minimumSize: const Size.fromHeight(40),
-          ),
-          child: const Text('Login'),
+        const SizedBox(
+          height: 10,
         ),
-        const SizedBox(height: 20),
-        TextButton(
-          onPressed: onSignUp,
-          child: const Text('Sign Up'),
-        )
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: onLogin,
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size.fromHeight(50),
+              primary: Color(0xffcd323a),
+            ),
+            child: const Text('Login'),
+          ),
+        ),
       ],
     );
   }
 }
-
