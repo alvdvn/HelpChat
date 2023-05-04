@@ -92,13 +92,14 @@ class _InputWidget extends StatelessWidget {
             TextField(
               minLines: 1,
               maxLines: 3,
+              keyboardType: TextInputType.multiline,
               focusNode: vm.focusNode,
               controller: vm.textController,
               autofocus: false,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Theme.of(context).canvasColor,
-                hintText: 'Enter a message',
+                hintText: 'Enter a message...',
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 20,
                   vertical: 5,

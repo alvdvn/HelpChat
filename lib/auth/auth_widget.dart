@@ -26,10 +26,7 @@ class AuthWidget extends StatelessWidget {
               case AuthState.login:
                 return LoginWidget();
               case AuthState.authenticated:
-                return  ChannelsScreen();
-                  // auth.user!.isAdmin
-                  //   ? const ChannelsScreen()
-                  //   : const HomeWidget();
+                return  const ChannelsScreen();
             }
           },
         );
