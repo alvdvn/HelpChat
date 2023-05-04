@@ -41,7 +41,7 @@ class ChannelsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonScaffold(
-      title: 'Conflicts',
+      title: 'Chats',
       body: ChangeNotifierProvider(
         create: (_) => ChannelsViewModel(getIt()),
         child: Consumer<ChannelsViewModel>(
@@ -51,7 +51,6 @@ class ChannelsScreen extends StatelessWidget {
                 child: CircularProgressIndicator.adaptive(),
               );
             }
-
             final channels = vm.channels;
             if (channels.isEmpty) {
               return const Center(child: Text('No conflicts yet.'));
