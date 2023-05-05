@@ -31,7 +31,7 @@ class MessageWidget extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-            color: isSender ? Colors.black87 : Colors.grey[50],
+            color: isSender ? Color(0xffcd323a) : Colors.grey[50],
             border: Border.all(
                 color: isSender ? Colors.transparent : Colors.grey[300]!),
             borderRadius: BorderRadius.only(
@@ -60,40 +60,4 @@ class MessageWidget extends StatelessWidget {
       ),
     );
   }
-
-// Widget _getStatus(Message message, bool isSender, BuildContext context) {
-//   switch (message.status) {
-//     case MessageStatus.sending:
-//       return const SizedBox.square(
-//         dimension: 10,
-//         child: CircularProgressIndicator(
-//           strokeWidth: 2,
-//         ),
-//       );
-//     case MessageStatus.sent:
-//       return Row(
-//         children: [
-//           if (isSender)
-//             const Icon(
-//               Icons.done_all,
-//               size: 10,
-//               color: Colors.white,
-//             ),
-//           if (isSender) const SizedBox(width: 10),
-//           Text(
-//             message.created_at,
-//             style: TextStyle(
-//               color: isSender ? Colors.white : Colors.black,
-//               fontSize: 10,
-//             ),
-//           )
-//         ],
-//       );
-//     case MessageStatus.failed:
-//       return const Icon(
-//         Icons.error_outline,
-//         size: 10,
-//         color: Colors.redAccent,
-//       );
-//   }
 }
