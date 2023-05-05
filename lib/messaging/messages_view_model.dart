@@ -90,7 +90,6 @@ class MessagesViewModel extends ChangeNotifier {
     pusher?.unsubscribe(channelName: channel);
     pusher?.disconnect();
     _messages.clear();
-
     super.dispose();
   }
 }

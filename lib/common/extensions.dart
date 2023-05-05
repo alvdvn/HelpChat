@@ -16,6 +16,6 @@ extension MyBuildContext on BuildContext {
     if (days == 0) {
       return TimeOfDay.fromDateTime(date).format(this);
     }
-    return DateFormat('MM-dd-yyyyHH:mm', Platform.localeName).format(date);
+    return DateFormat('dd/MM/yyyyHH:mm', Platform.localeName).format(date);
   }
 }

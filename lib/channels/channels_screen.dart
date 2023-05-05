@@ -53,6 +53,24 @@ class ChannelsScreen extends StatelessWidget {
           },
         ),
       ),
+      bottomNavigationBar: Container(
+        height: 70,
+        decoration: const BoxDecoration(
+          color: Color(0xffcd323a),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              onPressed: () {
+                print('tapped');
+              },
+              icon: Image.asset('assets/images/live-chat.png',color: Colors.white,),
+              color: Colors.white,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

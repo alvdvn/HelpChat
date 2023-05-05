@@ -88,24 +88,41 @@ class _InputWidget extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextField(
-              minLines: 1,
-              maxLines: 3,
-              keyboardType: TextInputType.multiline,
-              focusNode: vm.focusNode,
-              controller: vm.textController,
-              autofocus: false,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Theme.of(context).canvasColor,
-                hintText: 'Enter a message...',
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 5,
-                ),
-                suffixIcon: IconButton(
-                  onPressed: vm.sendMessage,
-                  icon: const Icon(Icons.send),
+            Container(
+              height: 100,
+              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+              child: TextFormField(
+                minLines: 1,
+                maxLines: 5,
+                keyboardType: TextInputType.multiline,
+                focusNode: vm.focusNode,
+                controller: vm.textController,
+                autofocus: false,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(20),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.indigo.shade100,
+                    ),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.indigo.shade100,
+                    ),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  filled: true,
+                  fillColor: Colors.indigo.shade50,
+                  hintText: 'Type your message...',
+                  hintStyle: const TextStyle(
+                    fontSize: 16,
+                  ),
+                  suffixIcon: IconButton(
+                    color: Color(0xffcd323a),
+                    onPressed: vm.sendMessage,
+                    icon: const Icon(Icons.send),
+                  ),
                 ),
               ),
             ),

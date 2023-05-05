@@ -61,7 +61,16 @@ class _FormContent extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo.png'),
+            Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: SizedBox(
+                height: 100,
+                child: Image.asset('assets/images/logo.png'),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
@@ -96,6 +105,7 @@ class _FormContent extends StatelessWidget {
                   borderSide: Divider.createBorderSide(context),
                 ),
               ),
+              obscureText: true,
               textCapitalization: TextCapitalization.none,
               textInputAction: TextInputAction.done,
               onEditingComplete: _validateInputs,
@@ -118,7 +128,28 @@ class _FormContent extends StatelessWidget {
                     .textTheme
                     .bodySmall!
                     .copyWith(color: Colors.red),
-              )
+              ),
+            const SizedBox(
+              height: 170,
+            ),
+            Column(
+              children: const [
+                Text(
+                  'Raihomes cung cấp cho bạn thông tin về BDS',
+                  style: TextStyle(
+                    color: Color(0xffcd323a),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Text(
+                  'Nhanh chóng - Trung thực - Pháp lý rõ ràng!',
+                  style: TextStyle(
+                    color: Color(0xffcd323a),
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -158,7 +189,7 @@ class _AuthButtons extends StatelessWidget {
             onPressed: onLogin,
             style: ElevatedButton.styleFrom(
               minimumSize: const Size.fromHeight(50),
-              primary: Color(0xffcd323a),
+              primary: const Color(0xffcd323a),
             ),
             child: const Text('Login'),
           ),
