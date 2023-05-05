@@ -1,30 +1,46 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:pusher_beams/pusher_beams.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../auth/auth_view_model.dart';
 import '../common/common_scaffold.dart';
 import '../common/get_it.dart';
 import 'message_widget.dart';
 import 'messages_view_model.dart';
 
-class MessagesScreen extends StatelessWidget {
+class MessagesScreen extends StatefulWidget {
+  const MessagesScreen({Key? key, required this.title, required this.channel})
+      : super(key: key);
   final String title;
   final String channel;
 
-  const MessagesScreen({required this.title, required this.channel, Key? key})
-      : super(key: key);
+  @override
+  State<MessagesScreen> createState() => _MessagesScreenState();
+}
+
+class _MessagesScreenState extends State<MessagesScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
     final bottom = MediaQuery.of(context).viewInsets.bottom;
 
     return ChangeNotifierProvider<MessagesViewModel>(
-      create: (_) => MessagesViewModel(channel, getIt()),
+      create: (_) => MessagesViewModel(widget.channel, getIt()),
       child: Consumer<MessagesViewModel>(
         builder: (ctx, vm, _) {
           return CommonScaffold(
-            title: title,
+            title: widget.title,
             body: GestureDetector(
               onTap: vm.focusNode.unfocus,
               child: _BodyWidget(vm: vm, bottom: bottom),
@@ -90,7 +106,7 @@ class _InputWidget extends StatelessWidget {
           children: [
             Container(
               height: 100,
-              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               child: TextFormField(
                 minLines: 1,
                 maxLines: 5,
