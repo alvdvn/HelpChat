@@ -191,7 +191,12 @@ class _AuthButtons extends StatelessWidget {
               minimumSize: const Size.fromHeight(50),
               primary: const Color(0xffcd323a),
             ),
-            child: const Text('Login'),
+            child: const Text(
+              'LOGIN',
+              style: TextStyle(
+                fontStyle: FontStyle.normal,
+              ),
+            ),
           ),
         ),
       ],
