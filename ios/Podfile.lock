@@ -3,12 +3,18 @@ PODS:
   - image_picker_ios (0.0.1):
     - Flutter
   - NWWebSocket (0.5.2)
+  - permission_handler_apple (9.0.4):
+    - Flutter
+  - pusher_beams_ios (0.0.1):
+    - Flutter
+    - PushNotifications (~> 4.0)
   - pusher_channels_flutter (0.0.1):
     - Flutter
     - PusherSwift (~> 10.1.1)
   - PusherSwift (10.1.1):
     - NWWebSocket (~> 0.5.2)
     - TweetNacl (~> 1.0.0)
+  - PushNotifications (4.0.0)
   - shared_preferences_ios (0.0.1):
     - Flutter
   - TweetNacl (1.0.2)
@@ -16,6 +22,8 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - pusher_beams_ios (from `.symlinks/plugins/pusher_beams_ios/ios`)
   - pusher_channels_flutter (from `.symlinks/plugins/pusher_channels_flutter/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
 
@@ -23,6 +31,7 @@ SPEC REPOS:
   trunk:
     - NWWebSocket
     - PusherSwift
+    - PushNotifications
     - TweetNacl
 
 EXTERNAL SOURCES:
@@ -30,6 +39,10 @@ EXTERNAL SOURCES:
     :path: Flutter
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  pusher_beams_ios:
+    :path: ".symlinks/plugins/pusher_beams_ios/ios"
   pusher_channels_flutter:
     :path: ".symlinks/plugins/pusher_channels_flutter/ios"
   shared_preferences_ios:
@@ -39,8 +52,11 @@ SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
   NWWebSocket: 21f0c73639815da3272862c912275b26102aa80c
+  permission_handler_apple: 44366e37eaf29454a1e7b1b7d736c2cceaeb17ce
+  pusher_beams_ios: 3991e6c6186aa392e2c82687f727ffd5075ea268
   pusher_channels_flutter: bf646336659d2cc058c62346b4b9e8b82e37b71b
   PusherSwift: 70a805a950ab49381e164c54ac19c3b9c1d288e3
+  PushNotifications: 2b2174b28bf48b1fe552686d1f95c53d62a4781d
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
 
