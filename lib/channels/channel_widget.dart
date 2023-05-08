@@ -7,7 +7,12 @@ class ChannelWidget extends StatelessWidget {
   final Channel channel;
   final VoidCallback onTap;
 
-  const ChannelWidget({required this.channel, required this.onTap, Key? key})
+
+  const ChannelWidget(
+      {required this.channel,
+      required this.onTap,
+      Key? key,
+     })
       : super(key: key);
 
   @override
@@ -60,13 +65,13 @@ class ChannelWidget extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(width: 0),
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.blue[300],
+                      shape: BoxShape.circle,
+                      color: Colors.blue,
                     ),
                     child: const Text(
                       '5',
                       style: TextStyle(
+                        color: Colors.white,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

@@ -1,7 +1,7 @@
 import 'sendmessage_response.dart';
 import 'upload_response.dart';
 import 'package:dio/dio.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 import 'message_response.dart';
 
@@ -34,16 +34,9 @@ class MessagesRepository {
     return SendMessageResponse.fromJson(data);
   }
 
-  Future<List<String>?> _uploadImages(List<XFile>? images) async {
-    if (images == null || images.isEmpty) return null;
 
-    const path = '/api/auth/msg/upload';
-    final fileFutures = images.map((e) async =>
-        MultipartFile.fromBytes(await e.readAsBytes(), filename: e.name));
 
-    final files = await Future.wait(fileFutures);
-    final data = FormData.fromMap(<String, dynamic>{'files': files});
-    final response = await _dio.post<Map>(path, data: data);
-    return UploadResponse.fromJson(response.data!).data;
-  }
+
+
+
 }
