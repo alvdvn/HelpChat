@@ -1,4 +1,4 @@
-name: petplus
+name: raihomes
 description: A Flutter project exemplifying how to build a customer service messaging app.
 publish_to: 'none'
 version: 1.0.0+1
@@ -34,6 +34,7 @@ flutter_icons:
   android: true
   ios: true
   adaptive_icon_background: '#ffffff'
+  adaptive_icon_foreground: 'assets/images/logo_foreground.png'
 
 flutter:
   uses-material-design: true
