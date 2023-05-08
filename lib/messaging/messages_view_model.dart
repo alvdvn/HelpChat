@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
 import 'package:uuid/uuid.dart';
 
@@ -19,7 +18,6 @@ class MessagesViewModel extends ChangeNotifier {
   final focusNode = FocusScopeNode();
   final textController = TextEditingController();
   final scrollController = ScrollController();
-  final _picker = ImagePicker();
 
   MessagesViewModel(this.channel, this.repo) {
     setUpClient();

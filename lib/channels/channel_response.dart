@@ -32,6 +32,7 @@ class Channel {
   final String name;
   final String create_at;
   final String update_at;
+  final int count_unseen;
   final Pivot pivot;
 
   Channel({
@@ -39,32 +40,27 @@ class Channel {
     required this.name,
     required this.create_at,
     required this.update_at,
+    required this.count_unseen,
     required this.pivot,
-
   });
 
   factory Channel.fromJson(Map<String, dynamic> json) => Channel(
       id: json['id'] as int,
       name: json['name'] as String,
       create_at: json['created_at'] as String,
-      update_at: json['updated_at']  as String,
-      pivot: Pivot.fromJson(json['pivot'] as Map<String, dynamic>)
-  );
-
+      update_at: json['updated_at'] as String,
+      count_unseen: json['count_unseen'] as int,
+      pivot: Pivot.fromJson(json['pivot'] as Map<String, dynamic>));
 }
 
 class Pivot {
   final int member_id;
   final int room_id;
 
-
   Pivot({required this.member_id, required this.room_id});
 
   factory Pivot.fromJson(Map<String, dynamic> json) {
     return Pivot(
-      member_id: json['member_id'] as int,
-  room_id: json['room_id'] as int
-  );
-
+        member_id: json['member_id'] as int, room_id: json['room_id'] as int);
   }
 }

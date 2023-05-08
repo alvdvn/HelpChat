@@ -76,7 +76,7 @@ class AuthViewModel extends ChangeNotifier {
     final pref = getIt<SharedPreferences>();
 
     if (token.isNullOrBlank()) {
-      _clearUserSession();
+      // _clearUserSession();
       return;
     }
 
@@ -124,7 +124,7 @@ class AuthViewModel extends ChangeNotifier {
   // }
 
   void logOut() {
-    _clearUserSession();
+    // _clearUserSession();
     loading = false;
     error = 'User session is expired';
     auth = auth.copyWith(auth: AuthState.login);
@@ -139,13 +139,13 @@ class AuthViewModel extends ChangeNotifier {
 
   }
 
-  void _clearUserSession() {
-    final pref = getIt<SharedPreferences>();
-    pref.remove(_authToken);
-    pref.remove(_authUser);
-    // pref.remove(_authRefreshToken);
-    // pref.remove(_authTokenExpiresAt);
-  }
+  // void _clearUserSession() {
+  //   final pref = getIt<SharedPreferences>();
+  //   pref.remove(_authToken);
+  //   pref.remove(_authUser);
+  //   // pref.remove(_authRefreshToken);
+  //   // pref.remove(_authTokenExpiresAt);
+  // }
 }
 
 const String _authToken = '_AUTH_TOKEN';
