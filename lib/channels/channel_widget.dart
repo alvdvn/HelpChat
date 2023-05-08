@@ -7,7 +7,12 @@ class ChannelWidget extends StatelessWidget {
   final Channel channel;
   final VoidCallback onTap;
 
-  const ChannelWidget({required this.channel, required this.onTap, Key? key})
+
+  const ChannelWidget(
+      {required this.channel,
+      required this.onTap,
+      Key? key,
+     })
       : super(key: key);
 
   @override
