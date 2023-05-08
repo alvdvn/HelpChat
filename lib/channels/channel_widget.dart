@@ -48,24 +48,42 @@ class ChannelWidget extends StatelessWidget {
                 ],
               ),
             ),
-            Column(children: [
-              Text(
-                context.getFormattedTime(DateTime.parse(channel.create_at)),
-                style: const TextStyle(color: Colors.grey, fontSize: 14),
-              ),
-              // const SizedBox(
-              //   height: 5,
-              // ),
-              // Text(
-              //   context
-              //       .getFormattedTime(DateTime.parse(channel.create_at))
-              //       .substring(10, 15),
-              //   style: const TextStyle(
-              //     color: Colors.grey,
-              //     fontSize: 14,
-              //   ),
-              // ),
-            ]),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    context.getFormattedTime(DateTime.parse(channel.create_at)),
+                    style: const TextStyle(color: Colors.grey, fontSize: 14),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 0),
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.blue[300],
+                    ),
+                    child: const Text(
+                      '5',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  // const SizedBox(
+                  //   height: 5,
+                  // ),
+                  // Text(
+                  //   context
+                  //       .getFormattedTime(DateTime.parse(channel.create_at))
+                  //       .substring(10, 15),
+                  //   style: const TextStyle(
+                  //     color: Colors.grey,
+                  //     fontSize: 14,
+                  //   ),
+                  // ),
+                ]),
           ],
         ),
       ),
