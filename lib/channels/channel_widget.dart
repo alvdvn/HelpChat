@@ -42,10 +42,12 @@ class ChannelWidget extends StatelessWidget {
                     channel.name ?? '\u1f4f7',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.black,
                         fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: channel.count_unseen != 0
+                            ? FontWeight.bold
+                            : FontWeight.w400),
                     textAlign: TextAlign.start,
                   ),
                 ],
@@ -61,22 +63,25 @@ class ChannelWidget extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    height: 20,
-                    width: 20,
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.blue,
-                    ),
-                    child: Text(
-                      channel.count_unseen.toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                  Visibility(
+                    visible: channel.count_unseen == 0 ? false : true,
+                    child: Container(
+                      height: 20,
+                      width: 20,
+                      alignment: Alignment.center,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.blue,
+                      ),
+                      child: Text(
+                        channel.count_unseen.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
-                  ),
+                  )
                   // const SizedBox(
                   //   height: 5,
                   // ),

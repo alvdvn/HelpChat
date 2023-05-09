@@ -33,7 +33,9 @@ class ChannelsViewModel extends ChangeNotifier {
     final message = Channel.fromJson(data);
     _addOrUpdateChannel(message);
   }
-
+  Future<bool> onSeen(String param) async {
+   return  _repo.putSeen(param);
+  }
   void fetchChannelsHistory() async {
     final channels = await _repo.fetchChannels();
     _channels.addAll(channels);

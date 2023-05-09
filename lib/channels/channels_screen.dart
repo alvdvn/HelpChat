@@ -111,10 +111,12 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
               itemCount: channels.length,
               itemBuilder: (_, i) {
                 final channel = channels[i];
+
                 return ChannelWidget(
                   channel: channel,
                   key: ValueKey(channel.id),
                   onTap: () {
+                    vm.onSeen('${channel.pivot.room_id}/seen');
                     Navigator.of(context).push<void>(
                       MaterialPageRoute(builder: (_) {
                         return MessagesScreen(

@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pusher_beams/pusher_beams.dart';
@@ -150,13 +150,14 @@ class _InputWidget extends StatelessWidget {
 }
 
 class _ImageWidget extends StatelessWidget {
-
+  final XFile file;
   final VoidCallback onRemove;
   final double size;
 
   const _ImageWidget({
     Key? key,
     required this.onRemove,
+    required this.file,
     required this.size,
   }) : super(key: key);
 
@@ -175,6 +176,12 @@ class _ImageWidget extends StatelessWidget {
               top: 15,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
+                child: Image.file(
+                  File(file.path),
+                  width: imageSize,
+                  height: imageSize,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Positioned(
