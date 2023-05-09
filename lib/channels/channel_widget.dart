@@ -61,7 +61,7 @@ class ChannelWidget extends StatelessWidget {
                     style: const TextStyle(color: Colors.grey, fontSize: 14),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   Visibility(
                     visible: channel.count_unseen == 0 ? false : true,
