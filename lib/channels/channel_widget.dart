@@ -64,7 +64,10 @@ class ChannelWidget extends StatelessWidget {
                     height: 10,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    height: 20,
+                    width: 20,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.blue,
                     ),
