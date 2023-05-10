@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../auth/auth_view_model.dart';
 import '../common/form_validators.dart';
@@ -37,7 +38,7 @@ class LoginWidget extends StatelessWidget {
   }
 }
 
-class _FormContent extends StatelessWidget {
+class _FormContent extends StatefulWidget {
   final GlobalKey<FormState> formKey;
   final FocusNode focusNode;
   final AuthViewModel authVM;
@@ -52,12 +53,24 @@ class _FormContent extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<_FormContent> createState() => _FormContentState();
+}
+
+class _FormContentState extends State<_FormContent> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
-      autovalidateMode: loginVM.validateMode,
+      key: widget.formKey,
+      autovalidateMode: widget.loginVM.validateMode,
       child: Focus(
-        focusNode: focusNode,
+        focusNode: widget.focusNode,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -87,8 +100,8 @@ class _FormContent extends StatelessWidget {
               ),
               textCapitalization: TextCapitalization.none,
               textInputAction: TextInputAction.next,
-              onEditingComplete: () => focusNode.nextFocus(),
-              onSaved: (v) => loginVM.updateForm(username: v),
+              onEditingComplete: () => widget.focusNode.nextFocus(),
+              onSaved: (v) => widget.loginVM.updateForm(username: v),
             ),
             const SizedBox(height: 20),
             TextFormField(
@@ -109,11 +122,11 @@ class _FormContent extends StatelessWidget {
               textCapitalization: TextCapitalization.none,
               textInputAction: TextInputAction.done,
               onEditingComplete: _validateInputs,
-              onSaved: (v) => loginVM.updateForm(password: v),
+              onSaved: (v) => widget.loginVM.updateForm(password: v),
               validator: FormValidators.password,
             ),
             const SizedBox(height: 20),
-            if (authVM.loading)
+            if (widget.authVM.loading)
               const CircularProgressIndicator.adaptive()
             else
               _AuthButtons(
@@ -121,9 +134,9 @@ class _FormContent extends StatelessWidget {
                 // onSignUp: authVM.showSignUp,
               ),
             const SizedBox(height: 20),
-            if (authVM.error != null)
+            if (widget.authVM.error != null)
               Text(
-                authVM.error!,
+                widget.authVM.error!,
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall!
@@ -157,17 +170,18 @@ class _FormContent extends StatelessWidget {
   }
 
   void _validateInputs() {
-    if (authVM.loading) return;
-    final formState = formKey.currentState;
+    if (widget.authVM.loading) return;
+    final formState = widget.formKey.currentState;
     if (formState?.validate() == true) {
       formState?.save();
-      focusNode.unfocus();
-      authVM.login(loginVM.formData);
+      widget.focusNode.unfocus();
+      widget.authVM.login(widget.loginVM.formData);
     } else {
-      loginVM.validateMode = AutovalidateMode.always;
+      widget.loginVM.validateMode = AutovalidateMode.always;
     }
   }
 }
+
 
 class _AuthButtons extends StatelessWidget {
   // final VoidCallback onSignUp;

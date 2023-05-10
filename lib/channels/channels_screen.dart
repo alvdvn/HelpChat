@@ -30,7 +30,7 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
   }
 
   void getSecure() async {
-    final BeamsAuthProvider provider = BeamsAuthProvider()
+    final provider = BeamsAuthProvider()
       ..authUrl = 'https://dev.raihomes.vn/api/v1/counselor/pusher/beams-auth'
       ..headers = {
         'Content-Type': 'application/json',
@@ -46,7 +46,6 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
         provider,
         (error) => {
               if (error != null) {print(error)}
-
               // Success! Do something...
             });
   }
@@ -78,7 +77,7 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
   }
 
   void _showAlert(String title, String message) {
-    AlertDialog alert = AlertDialog(
+    var alert = AlertDialog(
         title: Text(title), content: Text(message), actions: const []);
 
     showDialog<void>(
