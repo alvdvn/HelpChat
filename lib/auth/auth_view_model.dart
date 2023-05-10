@@ -134,9 +134,7 @@ class AuthViewModel extends ChangeNotifier {
   void _persistTokens(String token) {
     final pref = getIt<SharedPreferences>();
 
-
     pref.setString(_authToken, token);
-
   }
 
   void _clearUserSession() {
