@@ -78,8 +78,8 @@ Dio _getHttpClient(String url) {
       o.headers.remove('Authorization');
       return h.next(o);
     }
-    // final token = await getIt<AuthViewModel>().refreshToken();
-    // if (!token.isNullOrBlank()) o.headers['Authorization'] = 'Bearer $token';
+    final token = await getIt<AuthViewModel>().refreshToken();
+    if (!token.isNullOrBlank()) o.headers['Authorization'] = 'Bearer $token';
     return h.next(o);
   }, onError: (DioError e, ErrorInterceptorHandler h) {
     if (e.response?.statusCode == HttpStatus.unauthorized) {

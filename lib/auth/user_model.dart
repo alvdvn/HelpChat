@@ -54,8 +54,8 @@ class User extends Equatable {
         phone: j['phone'] as String,
         email: j['email'] as String,
         avatar: j['avatar'] as String,
-        created_at: j['create_at'] as String,
-        updated_at: j['update_at'] as String,
+        created_at: j['created_at'] as String,
+        updated_at: j['updated_at'] as String,
         username: j['username'] as String);
   }
 
@@ -74,8 +74,8 @@ class User extends Equatable {
         'phone': phone,
         'email': email,
         'avatar': avatar,
-        'createe_at': created_at,
-        'updatee_at': updated_at,
+        'created_at': created_at,
+        'updated_at': updated_at,
         'username': username
       });
 

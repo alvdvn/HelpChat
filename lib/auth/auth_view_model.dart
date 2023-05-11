@@ -83,6 +83,7 @@ class AuthViewModel extends ChangeNotifier {
     final user = User.fromLogin(res);
 
     pref.setString(_authUser, user.toJson());
+    print(pref.getString(_authUser));
     _persistTokens(token!);
 
     _setAuthenticated(token, user);
@@ -96,32 +97,32 @@ class AuthViewModel extends ChangeNotifier {
     }
   }
 
-  // Future<String?> refreshToken() async {
-  //   final pref = getIt<SharedPreferences>();
-  //   // final refreshToken = pref.getString(_authRefreshToken);
-  //   // final expiresAt = pref.getInt(_authTokenExpiresAt);
-  //
-  //   // If we have an id token but can't refresh it
-  //   // if (refreshToken.isNullOrBlank() || expiresAt == null) {
-  //   //   return null;
-  //   // }
-  //   //
-  //   // final now = DateTime.now().millisecondsSinceEpoch;
-  //   // final refresh = (expiresAt - now) <= _minTokenLife;
-  //   //
-  //   // // If Id token has not expired or even close to expiration
-  //   // if (!refresh) return null;
-  //
-  //   final res = await repo.refreshToken(refreshToken!);
-  //   if (!res.isValid()) return null;
-  //
-  //   _setAuthenticated(res.data!.access_token, null);
-  //   _persistTokens(
-  //     res.data!.access_token,
-  //
-  //   );
-  //   return res.data!.access_token;
-  // }
+  Future<String?> refreshToken() async {
+    final pref = getIt<SharedPreferences>();
+    final refreshToken = pref.getString(_authRefreshToken);
+    final expiresAt = pref.getInt(_authTokenExpiresAt);
+
+    // If we have an id token but can't refresh it
+    if (refreshToken.isNullOrBlank() || expiresAt == null) {
+      return null;
+    }
+
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final refresh = (expiresAt - now) <= _minTokenLife;
+
+    // If Id token has not expired or even close to expiration
+    if (!refresh) return null;
+
+    final res = await repo.refreshToken(refreshToken!);
+    if (!res.isValid()) return null;
+
+    _setAuthenticated(res.data!.access_token, null);
+    _persistTokens(
+      res.data!.access_token,
+
+    );
+    return res.data!.access_token;
+  }
 
   void logOut() {
     _clearUserSession();
@@ -142,14 +143,14 @@ class AuthViewModel extends ChangeNotifier {
   void _clearUserSession() {
     final pref = getIt<SharedPreferences>();
     pref.remove(_authToken);
-    pref.remove(_authUser);
-    // pref.remove(_authRefreshToken);
-    // pref.remove(_authTokenExpiresAt);
+
+    pref.remove(_authRefreshToken);
+    pref.remove(_authTokenExpiresAt);
   }
 }
 
 const String _authToken = '_AUTH_TOKEN';
-// const String _authRefreshToken = '_AUTH_REFRESH_TOKEN';
-// const String _authTokenExpiresAt = '_AUTH_TOKEN_EXPIRES_AT';
+const String _authRefreshToken = '_AUTH_REFRESH_TOKEN';
+const String _authTokenExpiresAt = '_AUTH_TOKEN_EXPIRES_AT';
 const String _authUser = '_AUTH_USER';
-const int _minTokenLife = 10 * 60 * 1000; // 10 minutes
+const int _minTokenLife = 24*60 * 60 * 1000; // 1  day
