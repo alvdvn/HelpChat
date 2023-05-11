@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../common/get_it.dart';
-import '../home/home_widget.dart';
 import 'auth_model.dart';
 import '../channels/channels_screen.dart';
 import '../login/login_screen.dart';
-import '../signup/signup_screen.dart';
 import 'auth_view_model.dart';
 
 class AuthWidget extends StatelessWidget {
@@ -24,7 +22,7 @@ class AuthWidget extends StatelessWidget {
               case AuthState.login:
                 return LoginWidget();
               case AuthState.authenticated:
-                return  const ChannelsScreen();
+                return const ChannelsScreen();
             }
           },
         );

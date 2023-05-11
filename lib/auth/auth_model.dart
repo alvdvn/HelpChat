@@ -22,4 +22,4 @@ class AuthModel extends Equatable {
   }
 }
 
-enum AuthState {login, authenticated }
+enum AuthState { login, authenticated }

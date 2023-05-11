@@ -21,14 +21,15 @@ class ChannelsRepository {
       return <Channel>[];
     }
   }
-  Future<bool> putSeen(String param) async{
-    String path ='/chat/$param';
-    try{
-      final response= await _dio.put<Map>(path);
+
+  Future<bool> putSeen(String param) async {
+    String path = '/chat/$param';
+    try {
+      final response = await _dio.put<Map>(path);
       final data = response.data;
-      if(data == null ) return false;
+      if (data == null) return false;
       return SeenResponse.fromJson(data).status ?? false;
-    }catch (e) {
+    } catch (e) {
       debugPrint(e.toString());
       return false;
     }

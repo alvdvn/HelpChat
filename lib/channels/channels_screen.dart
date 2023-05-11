@@ -21,7 +21,6 @@ class ChannelsScreen extends StatefulWidget {
 }
 
 class _ChannelsScreenState extends State<ChannelsScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -29,26 +28,26 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
     initPusherBeams();
     getSecure();
   }
+
   void getSecure() async {
-    final BeamsAuthProvider provider = BeamsAuthProvider()
+    final provider = BeamsAuthProvider()
       ..authUrl = 'https://dev.raihomes.vn/api/v1/counselor/pusher/beams-auth'
       ..headers = {
         'Content-Type': 'application/json',
         'Authorization':
-        'Bearer ${getIt<SharedPreferences>().getString('_AUTH_TOKEN')}'
+            'Bearer ${getIt<SharedPreferences>().getString('_AUTH_TOKEN')}'
       }
       ..queryParams = {'page': '1'}
       ..credentials = 'omit';
 
     await PusherBeams.instance.setUserId(
         '${getIt<AuthViewModel>().auth.user?.username}-'
-            '${getIt<AuthViewModel>().auth.user?.id}',
+        '${getIt<AuthViewModel>().auth.user?.id}',
         provider,
-            (error) => {
-          if (error != null) {print(error)}
-
-          // Success! Do something...
-        });
+        (error) => {
+              if (error != null) {print(error)}
+              // Success! Do something...
+            });
   }
 
   void initPusherBeams() async {
@@ -62,7 +61,6 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
 
       await PusherBeams.instance
           .onMessageReceivedInTheForeground(_onMessageReceivedInTheForeground);
-
     }
     await _checkForInitialMessage();
   }
@@ -79,7 +77,7 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
   }
 
   void _showAlert(String title, String message) {
-    AlertDialog alert = AlertDialog(
+    var alert = AlertDialog(
         title: Text(title), content: Text(message), actions: const []);
 
     showDialog<void>(
@@ -147,7 +145,10 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
               onPressed: () {
                 print('tapped');
               },
-              icon: Image.asset('assets/images/live-chat.png',color: Colors.white,),
+              icon: Image.asset(
+                'assets/images/live-chat.png',
+                color: Colors.white,
+              ),
               color: Colors.white,
             ),
           ],

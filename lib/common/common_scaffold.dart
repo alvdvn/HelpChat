@@ -31,5 +31,3 @@ class CommonScaffold extends StatelessWidget {
     );
   }
 }
-
-

@@ -3,9 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
-import 'package:uuid/uuid.dart';
-
-import '../auth/auth_view_model.dart';
 import '../common/get_it.dart';
 import 'message_response.dart';
 import 'messages_repository.dart';
