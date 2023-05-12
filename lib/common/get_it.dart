@@ -7,6 +7,7 @@ import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../channels/channels_repository.dart';
+import '../channels/channels_view_model.dart';
 import '../inventory/inventory_repository.dart';
 import '../messaging/messages_repository.dart';
 import 'app_config.dart';
@@ -25,6 +26,7 @@ void initServices(AppConfig config) {
   getIt.registerFactory(() => MessagesRepository(getIt()));
   getIt.registerFactory(() => ChannelsRepository(getIt()));
   getIt.registerLazySingleton(() => AuthViewModel(getIt()));
+  getIt.registerLazySingleton(() => ChannelsViewModel(getIt()));
   getIt.registerLazySingletonAsync(() => _getPusher(config));
 }
 
@@ -50,8 +52,8 @@ Dio _getHttpClient(String url) {
       o.headers.remove('Authorization');
       return h.next(o);
     }
-    final token = await getIt<AuthViewModel>().refreshToken();
-    if (!token.isNullOrBlank()) o.headers['Authorization'] = 'Bearer $token';
+    // final token = await getIt<AuthViewModel>().refreshToken();
+    // if (!token.isNullOrBlank()) o.headers['Authorization'] = 'Bearer $token';
     return h.next(o);
   }, onError: (DioError e, ErrorInterceptorHandler h) {
     if (e.response?.statusCode == HttpStatus.unauthorized) {

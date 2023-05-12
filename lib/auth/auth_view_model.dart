@@ -97,32 +97,32 @@ class AuthViewModel extends ChangeNotifier {
     }
   }
 
-  Future<String?> refreshToken() async {
-    final pref = getIt<SharedPreferences>();
-    final refreshToken = pref.getString(_authRefreshToken);
-    final expiresAt = pref.getInt(_authTokenExpiresAt);
-
-    // If we have an id token but can't refresh it
-    if (refreshToken.isNullOrBlank() || expiresAt == null) {
-      return null;
-    }
-
-    final now = DateTime.now().millisecondsSinceEpoch;
-    final refresh = (expiresAt - now) <= _minTokenLife;
-
-    // If Id token has not expired or even close to expiration
-    if (!refresh) return null;
-
-    final res = await repo.refreshToken(refreshToken!);
-    if (!res.isValid()) return null;
-
-    _setAuthenticated(res.data!.access_token, null);
-    _persistTokens(
-      res.data!.access_token,
-
-    );
-    return res.data!.access_token;
-  }
+  // Future<String?> refreshToken() async {
+  //   final pref = getIt<SharedPreferences>();
+  //   final refreshToken = pref.getString(_authRefreshToken);
+  //   final expiresAt = pref.getInt(_authTokenExpiresAt);
+  //
+  //   // If we have an id token but can't refresh it
+  //   if (refreshToken.isNullOrBlank() || expiresAt == null) {
+  //     return null;
+  //   }
+  //
+  //   final now = DateTime.now().millisecondsSinceEpoch;
+  //   final refresh = (expiresAt - now) <= _minTokenLife;
+  //
+  //   // If Id token has not expired or even close to expiration
+  //   if (!refresh) return null;
+  //
+  //   final res = await repo.refreshToken(refreshToken!);
+  //   if (!res.isValid()) return null;
+  //
+  //   _setAuthenticated(res.data!.access_token, null);
+  //   _persistTokens(
+  //     res.data!.access_token,
+  //
+  //   );
+  //   return res.data!.access_token;
+  // }
 
   void logOut() {
     _clearUserSession();
